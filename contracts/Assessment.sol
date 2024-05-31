@@ -72,21 +72,4 @@ contract Assessment {
         // emit the event
         emit BalanceMultiplied(_previousBalance, balance);
     }
-
-    function transferOwnership(address payable _newOwner) public {
-        // make sure this is the owner
-        require(msg.sender == owner, "You are not the owner of this account");
-
-        // validate the new owner address
-        require(_newOwner != address(0), "Invalid new owner address");
-
-        // store the previous owner
-        address payable _previousOwner = owner;
-
-        // update the owner
-        owner = _newOwner;
-
-        // emit the event
-        emit OwnershipTransferred(_previousOwner, _newOwner);
-    }
 }
